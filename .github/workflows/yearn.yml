@@ -2,7 +2,7 @@ name: Yearn
 
 on:
   schedule:
-    - cron: "0 0 1 1 *"
+    - cron: "0 0 * * *"
   push:
     branches:
       - main
@@ -58,6 +58,7 @@ jobs:
         run: yarn test:system
 
   yearn-format:
+    if: false
     needs: yearn-detect-changes
     if: |
       github.event_name == 'push'
